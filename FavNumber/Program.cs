@@ -1,22 +1,29 @@
 ﻿
 
-Console.WriteLine("Guess a random number from 1 - 1000");
+Console.WriteLine("Guess a random number from 1 - 10");
 var r = new Random();
-var randomNumber = r.Next(1, 1000);
-var userInput = int.Parse(Console.ReadLine());
+var randomNumber = r.Next(1, 10);
+int userInput; 
 
 
-if (userInput > randomNumber)
-{
-    Console.WriteLine("too low");
-}
+while (true) {
 
-else if (userInput < randomNumber)
-{
-    Console.WriteLine("too high");
-}
+    userInput = int.Parse(Console.ReadLine());
 
-else
-{
-    Console.WriteLine("You guessed it!!!!");
+    if (userInput < randomNumber)
+    {
+        Console.WriteLine("Too low... try again.");
+    }
+
+    else if (userInput > randomNumber)
+    {
+        Console.WriteLine("Too high... try again.");
+    }
+
+    else
+    {
+        Console.WriteLine($"Correct! {randomNumber} is the correct guess!");
+        break;
+    }
+
 }
